@@ -2,7 +2,48 @@
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
-// Your JavaScript code goes here!
+const hearts = document.getElementsByClassName('like-glyph');
+for (let i = 0; i < hearts.length; i++) {
+  hearts[i].addEventListener('click', function(e) {
+    like(e)
+  })
+}
+function like(e) {
+  let heart = e.target
+  mimicServerCall("bogusUrl")
+  .then(function(res) {
+    if (heart.innerHTML == '♡') {
+      heart.innerHTML = '♥'
+    } else {
+      heart.innerHTML = '♡'
+    }
+  })
+  .catch(function(error) {
+    let err = document.querySelector("#modal")
+    err.class.remove()
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
